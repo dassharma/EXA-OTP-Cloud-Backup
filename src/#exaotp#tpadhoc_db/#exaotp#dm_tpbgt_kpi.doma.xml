@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>/EXAOTP/DM_TPBGT_KPI</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000002</LENG>
+    <OUTPUTLEN>000002</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>KPI for TP Budget</DDTEXT>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>/EXAOTP/DM_TPBGT_KPI</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>OP</DOMVALUE_L>
+     <DDTEXT>OPEX Remaninig (%)</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>/EXAOTP/DM_TPBGT_KPI</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>SG</DOMVALUE_L>
+     <DDTEXT>SG&amp;A (%)</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>/EXAOTP/DM_TPBGT_KPI</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>IC</DOMVALUE_L>
+     <DDTEXT>Custom duties (%)</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>/EXAOTP/DM_TPBGT_KPI</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>IF</DOMVALUE_L>
+     <DDTEXT>Inbound freight cost (%)</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>/EXAOTP/DM_TPBGT_KPI</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>OF</DOMVALUE_L>
+     <DDTEXT>Outbound freight cost (%)</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>/EXAOTP/DM_TPBGT_KPI</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>EB</DOMVALUE_L>
+     <DDTEXT>EBIT (%)</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD01_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>KPI für TP-Budget</DDTEXT>
+    </item>
+   </DD01_TEXTS>
+   <DD07_TEXTS>
+    <item>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>OP</DOMVALUE_L>
+     <DDTEXT>OPEX verbleibend (%)</DDTEXT>
+    </item>
+    <item>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>SG</DOMVALUE_L>
+     <DDTEXT>SG&amp;A (%)</DDTEXT>
+    </item>
+    <item>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>IC</DOMVALUE_L>
+     <DDTEXT>Einfuhrzölle (%)</DDTEXT>
+    </item>
+    <item>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>IF</DOMVALUE_L>
+     <DDTEXT>Eingehende Frachtkosten (%)</DDTEXT>
+    </item>
+    <item>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>OF</DOMVALUE_L>
+     <DDTEXT>Ausgehende Frachtkosten (%)</DDTEXT>
+    </item>
+    <item>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>EB</DOMVALUE_L>
+     <DDTEXT>EBIT (%)</DDTEXT>
+    </item>
+   </DD07_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,5 @@
+@MappingRole: true
+define role /EXAOTP/I_TpAdhocAtt {
+  grant select on /EXAOTP/I_TpAdhocAtt
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = '/EXAOTP/I_TPADHOCATT' );
+}

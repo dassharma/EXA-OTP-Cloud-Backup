@@ -1,0 +1,5 @@
+define service /EXAOTP/UI_TPADHOCMETHFIELD {
+  expose /EXAOTP/C_TPADHOCMETHFIELD_S as TpAdhocMethFieldAll;
+  expose /EXAOTP/C_TPADHOCMETHFIELD as TpAdhocMethField;
+  expose /EXAOTP/C_TPADHOCMETHFIELDTEXT as TpAdhocMethFielText;
+}

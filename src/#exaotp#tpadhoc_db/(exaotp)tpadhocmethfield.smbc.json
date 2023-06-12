@@ -1,0 +1,38 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain TP Adhoc Pricing Method Fields",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "/EXAOTP/UI_TPADHOCMETHFIEL",
+    "serviceName": "/EXAOTP/UI_TPADHOCMETHFIEL",
+    "serviceVersion": "0001",
+    "rootEntitySet": "TpAdhocMethFieldAll",
+    "name": "TP Adhoc Pricing Method Fields",
+    "configurationGroup": "/EXAOTP/TPADHOC",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "TpAdhocMethFieldAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "TpAdhocMethFielText",
+        "tableType": "gridTable",
+        "creationModeName": "creationRow"
+      },
+      {
+        "entitySet": "TpAdhocMethField",
+        "selectionMode": "single",
+        "rowCountMode": "auto"
+      }
+    ]
+  }
+}

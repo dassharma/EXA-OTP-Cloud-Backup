@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/EXAOTP/DE_TP_ALGORITHM</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>/EXAOTP/DM_TP_ALGORITHM</DOMNAME>
+    <HEADLEN>15</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>11</SCRLEN2>
+    <SCRLEN3>12</SCRLEN3>
+    <DDTEXT>TP Algorithm</DDTEXT>
+    <REPTEXT>TP Algorithm</REPTEXT>
+    <SCRTEXT_S>Algorithm</SCRTEXT_S>
+    <SCRTEXT_M>TP Algorthm</SCRTEXT_M>
+    <SCRTEXT_L>TP Algortihm</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>

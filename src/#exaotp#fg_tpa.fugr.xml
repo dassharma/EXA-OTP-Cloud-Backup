@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Maintainance Function Group for TP Adhoc</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>/EXAOTP/LFG_TPAT00</SOBJ_NAME>
+    <SOBJ_NAME>/EXAOTP/LFG_TPATOP</SOBJ_NAME>
+    <SOBJ_NAME>/EXAOTP/SAPLFG_TPA</SOBJ_NAME>
+   </INCLUDES>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,5 @@
+define service /EXAOTP/UI_TPADHOCATT {
+  expose /EXAOTP/C_TPADHOCATT_S as TpAdhocAttAll;
+  expose /EXAOTP/C_TPADHOCATT as TpAdhocAtt;
+  expose /EXAOTP/C_TPADHOCATTTEXT as TpAdhocAttText;
+}

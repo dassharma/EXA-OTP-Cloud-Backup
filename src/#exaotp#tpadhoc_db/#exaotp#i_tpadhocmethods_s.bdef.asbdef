@@ -1,0 +1,116 @@
+managed with additional save implementation in class /EXAOTP/BP_I_TPADHOCMETHODS_S unique;
+strict;
+with draft;
+
+define behavior for /EXAOTP/I_TpAdhocMethods_S alias TpAdhocMethodsAll
+draft table /EXAOTP/D_PM_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation TpAdhocMethods ~ ValidateDataConsistency;
+    validation TpAdhocMethodsText ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TpAdhocMethods { create ( features : instance ); with draft; }
+}
+
+define behavior for /EXAOTP/I_TpAdhocMethods alias TpAdhocMethods
+persistent table /EXAOTP/T_TP_PM
+draft table /EXAOTP/D_TPM
+etag master LocalLastChangedAt
+lock dependent by _TpAdhocMethodsAll
+authorization dependent by _TpAdhocMethodsAll
+
+{
+  field ( mandatory : create )
+   Method;
+
+  field ( readonly )
+   SingletonID,
+   Crnam,
+   Crtimestamp,
+   Chnam,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Method;
+
+
+  update( features : global );
+  delete( features : global );
+
+  factory action ( features : instance ) CopyTpAdhocMethods parameter /EXAOTP/D_CopyTpAdhocMethods [1];
+
+  mapping for /EXAOTP/T_TP_PM
+  {
+    Method = METHOD;
+    ActiveFlag = ACTIVE_FLAG;
+    CreateFlag = CREATE_FLAG;
+    Crnam = CRNAM;
+    Crtimestamp = CRTIMESTAMP;
+    Chnam = CHNAM;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TpAdhocMethodsAll { with draft; }
+  association _TpAdhocMethodsText { create ( features : global ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}
+
+define behavior for /EXAOTP/I_TpAdhocMethodsText alias TpAdhocMethodsText
+persistent table /EXAOTP/T_TP_PMT
+draft table /EXAOTP/D_TPMT
+etag master LocalLastChangedAt
+lock dependent by _TpAdhocMethodsAll
+authorization dependent by _TpAdhocMethodsAll
+
+{
+  field ( mandatory : create )
+   Spras;
+
+  field ( readonly )
+   SingletonID,
+   Method,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Spras;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for /EXAOTP/T_TP_PMT
+  {
+    Spras = SPRAS;
+    Method = METHOD;
+    Description = DESCRIPTION;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TpAdhocMethodsAll { with draft; }
+  association _TpAdhocMethods { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}

@@ -1,0 +1,42 @@
+projection implementation in class /EXAOTP/BP_C_TPADHOCMETHFIEL_S unique;
+strict;
+use draft;
+
+define behavior for /EXAOTP/C_TpAdhocMethField_S alias TpAdhocMethFieldAll
+
+{
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action SelectCustomizingTransptReq;
+
+  use association _TpAdhocMethField { create ( augment ); with draft; }
+}
+
+define behavior for /EXAOTP/C_TpAdhocMethField alias TpAdhocMethField
+
+{
+  field ( modify )
+   Description;
+
+
+  use update( augment );
+  use delete;
+
+  use action CopyTpAdhocMethField;
+
+  use association _TpAdhocMethFieldAll { with draft; }
+  use association _TpAdhocMethFielText { create; with draft; }
+}
+
+define behavior for /EXAOTP/C_TpAdhocMethFieldText alias TpAdhocMethFielText
+
+{
+  use update;
+  use delete;
+
+  use association _TpAdhocMethFieldAll { with draft; }
+  use association _TpAdhocMethField { with draft; }
+}

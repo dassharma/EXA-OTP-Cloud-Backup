@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/EXAOTP/DE_TP_BGTTYPE</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>/EXAOTP/DM_TP_BGTTYPE</DOMNAME>
+    <HEADLEN>15</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>15</SCRLEN3>
+    <DDTEXT>TP Adhoc Budget Type</DDTEXT>
+    <REPTEXT>Budget Type</REPTEXT>
+    <SCRTEXT_S>Budget Ty.</SCRTEXT_S>
+    <SCRTEXT_M>Budget Type</SCRTEXT_M>
+    <SCRTEXT_L>Budget Type</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>TP Ad-hoc Budget-Typ</DDTEXT>
+     <REPTEXT>Budget-Typ</REPTEXT>
+     <SCRTEXT_S>Budget-Typ</SCRTEXT_S>
+     <SCRTEXT_M>Budget-Typ</SCRTEXT_M>
+     <SCRTEXT_L>Budget-Typ</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

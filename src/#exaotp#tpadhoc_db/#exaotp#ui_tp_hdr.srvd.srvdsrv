@@ -1,0 +1,4 @@
+@EndUserText.label: 'TP Header Staging'
+define service /EXAOTP/UI_TP_HDR {
+  expose /EXAOTP/I_TP_HDR as Staging;
+}

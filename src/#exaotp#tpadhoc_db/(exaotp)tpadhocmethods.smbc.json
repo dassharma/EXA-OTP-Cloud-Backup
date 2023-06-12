@@ -1,0 +1,38 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain TP Adhoc Pricing Methods",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "/EXAOTP/UI_TPADHOCMETHODS",
+    "serviceName": "/EXAOTP/UI_TPADHOCMETHODS",
+    "serviceVersion": "0001",
+    "rootEntitySet": "TpAdhocMethodsAll",
+    "name": "TP Adhoc Pricing Methods",
+    "configurationGroup": "/EXAOTP/TPADHOC",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "TpAdhocMethodsAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "TpAdhocMethods",
+        "selectionMode": "single",
+        "rowCountMode": "auto"
+      },
+      {
+        "entitySet": "TpAdhocMethodsText",
+        "tableType": "gridTable",
+        "creationModeName": "creationRow"
+      }
+    ]
+  }
+}

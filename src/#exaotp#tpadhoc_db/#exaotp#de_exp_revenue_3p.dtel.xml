@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/EXAOTP/DE_EXP_REVENUE_3P</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>/EXAOTP/DM_TP</DOMNAME>
+    <HEADLEN>25</HEADLEN>
+    <SCRLEN1>08</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>Expected Revenue to 3P (or IC)</DDTEXT>
+    <REPTEXT>Expected Revenue to 3P</REPTEXT>
+    <SCRTEXT_S>Exp Rev</SCRTEXT_S>
+    <SCRTEXT_M>Exp Revenue 3p</SCRTEXT_M>
+    <SCRTEXT_L>Expected Revenue 3P</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>

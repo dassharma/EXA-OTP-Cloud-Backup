@@ -1,0 +1,120 @@
+managed with additional save implementation in class /EXAOTP/BP_I_TPADHOCALG_S unique;
+strict;
+with draft;
+
+define behavior for /EXAOTP/I_TpAdhocAlg_S alias TpAdhocAlgAll
+draft table /EXAOTP/D_TALG_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation TpAdhocAlg ~ ValidateDataConsistency;
+    validation TpAdhocAlgText ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TpAdhocAlg { create ( features : instance ); with draft; }
+}
+
+define behavior for /EXAOTP/I_TpAdhocAlg alias TpAdhocAlg
+persistent table /EXAOTP/T_TP_ALG
+draft table /EXAOTP/D_TALG
+etag master LocalLastChangedAt
+lock dependent by _TpAdhocAlgAll
+authorization dependent by _TpAdhocAlgAll
+
+{
+  field ( mandatory : create )
+   Method,
+   Algorithm;
+
+  field ( readonly )
+   SingletonID,
+   Crnam,
+   Crtimestamp,
+   Chnam,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Method,
+   Algorithm;
+
+
+  update( features : global );
+  delete( features : global );
+
+  factory action ( features : instance ) CopyTpAdhocAlg parameter /EXAOTP/D_CopyTpAdhocAlgP [1];
+
+  mapping for /EXAOTP/T_TP_ALG
+  {
+    Method = METHOD;
+    Algorithm = ALGORITHM;
+    ActiveFlag = ACTIVE_FLAG;
+    Crnam = CRNAM;
+    Crtimestamp = CRTIMESTAMP;
+    Chnam = CHNAM;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TpAdhocAlgAll { with draft; }
+  association _TpAdhocAlgText { create ( features : global ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}
+
+define behavior for /EXAOTP/I_TpAdhocAlgText alias TpAdhocAlgText
+persistent table /EXAOTP/T_TP_ALT
+draft table /EXAOTP/D_TALT
+etag master LocalLastChangedAt
+lock dependent by _TpAdhocAlgAll
+authorization dependent by _TpAdhocAlgAll
+
+{
+  field ( mandatory : create )
+   Spras;
+
+  field ( readonly )
+   SingletonID,
+   Method,
+   Algorithm,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Spras;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for /EXAOTP/T_TP_ALT
+  {
+    Spras = SPRAS;
+    Method = METHOD;
+    Algorithm = ALGORITHM;
+    Description = DESCRIPTION;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TpAdhocAlgAll { with draft; }
+  association _TpAdhocAlg { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}

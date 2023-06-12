@@ -1,0 +1,38 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain TP Adhoc Attributes",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "/EXAOTP/UI_TPADHOCATT_O4",
+    "serviceName": "/EXAOTP/UI_TPADHOCATT_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "TpAdhocAttAll",
+    "name": "TP Adhoc Attributes",
+    "configurationGroup": "/EXAOTP/TPADHOC",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "TpAdhocAttAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "TpAdhocAtt",
+        "selectionMode": "single",
+        "rowCountMode": "auto"
+      },
+      {
+        "entitySet": "TpAdhocAttText",
+        "tableType": "gridTable",
+        "creationModeName": "creationRow"
+      }
+    ]
+  }
+}

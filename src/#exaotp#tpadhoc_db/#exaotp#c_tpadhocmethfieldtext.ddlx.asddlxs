@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TpAdhocMethFielText', 
+    typeNamePlural: 'TpAdhocMethFielTexts', 
+    title: {
+      type: #STANDARD, 
+      label: 'TP Adhoc Pricing Method Fields Text', 
+      value: 'Spras'
+    }
+  }
+}
+annotate view /EXAOTP/C_TpAdhocMethFieldText with
+{
+  @UI.facet: [ {
+    id: '/EXAOTP/I_TpAdhocMethFieldText', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TP Adhoc Pricing Method Fields Text', 
+    position: 1 
+  } ]
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  Spras;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Description;
+}

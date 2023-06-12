@@ -1,0 +1,155 @@
+managed with additional save implementation in class /EXAOTP/BP_I_TPADHOCATT_S unique;
+strict;
+with draft;
+
+define behavior for /EXAOTP/I_TpAdhocAtt_S alias TpAdhocAttAll
+draft table /EXAOTP/D_TATT_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation TpAdhocAtt ~ ValidateDataConsistency;
+    validation TpAdhocAttText ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TpAdhocAtt { create ( features : instance ); with draft; }
+}
+
+define behavior for /EXAOTP/I_TpAdhocAtt alias TpAdhocAtt
+persistent table /EXAOTP/T_TP_ATT
+draft table /EXAOTP/D_TATT
+etag master LocalLastChangedAt
+lock dependent by _TpAdhocAttAll
+authorization dependent by _TpAdhocAttAll
+
+{
+  field ( mandatory : create )
+   Method,
+   Algorithm,
+   NodeId,
+   TpParamType;
+
+  field ( readonly )
+   SingletonID,
+   Crnam,
+   Crtimestamp,
+   Chnam,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Method,
+   Algorithm,
+   NodeId,
+   TpParamType;
+
+
+  update( features : global );
+  delete( features : global );
+
+  factory action ( features : instance ) CopyTpAdhocAtt parameter /EXAOTP/D_CopyTpAdhocAttP [1];
+
+  mapping for /EXAOTP/T_TP_ATT
+  {
+    Method = METHOD;
+    Algorithm = ALGORITHM;
+    NodeId = NODE_ID;
+    TpParamType = TP_PARAM_TYPE;
+    Formula = FORMULA;
+    Percent = PERCENT;
+    Enabled = ENABLED;
+    KpiInd = KPI_IND;
+    Source = SOURCE;
+    Seq = SEQ;
+    DefValue = DEF_VALUE;
+    TpOutput = TP_OUTPUT;
+    TpResult = TP_RESULT;
+    TpFinOutput = TP_FIN_OUTPUT;
+    TpIccomp = TP_ICCOMP;
+    CalPrio = CAL_PRIO;
+    ConvRel = CONV_REL;
+    PropInd = PROP_IND;
+    PropTpInd = PROP_TP_IND;
+    Tprice = TPRICE;
+    CurrencyInd = CURRENCY_IND;
+    GroupCurr = GROUP_CURR;
+    TpChange = TP_CHANGE;
+    Service = SERVICE;
+    Entity = ENTITY;
+    DropDownFlag = DROP_DOWN_FLAG;
+    CheckBoxFlag = CHECK_BOX_FLAG;
+    F4Flag = F4_FLAG;
+    DataElement = DATA_ELEMENT;
+    Hide = HIDE;
+    Crnam = CRNAM;
+    Crtimestamp = CRTIMESTAMP;
+    Chnam = CHNAM;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TpAdhocAttAll { with draft; }
+  association _TpAdhocAttText { create ( features : global ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}
+
+define behavior for /EXAOTP/I_TpAdhocAttText alias TpAdhocAttText
+persistent table /EXAOTP/T_TP_ART
+draft table /EXAOTP/D_TART
+etag master LocalLastChangedAt
+lock dependent by _TpAdhocAttAll
+authorization dependent by _TpAdhocAttAll
+
+{
+  field ( mandatory : create )
+   Spras;
+
+  field ( readonly )
+   SingletonID,
+   Method,
+   Algorithm,
+   NodeId,
+   TpParamType,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Spras;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for /EXAOTP/T_TP_ART
+  {
+    Method = METHOD;
+    Algorithm = ALGORITHM;
+    NodeId = NODE_ID;
+    TpParamType = TP_PARAM_TYPE;
+    Spras = SPRAS;
+    Description = DESCRIPTION;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TpAdhocAttAll { with draft; }
+  association _TpAdhocAtt { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}

@@ -1,0 +1,5 @@
+define service /EXAOTP/UI_TPADHOCMETHODS {
+  expose /EXAOTP/C_TPADHOCMETHODS_S as TpAdhocMethodsAll;
+  expose /EXAOTP/C_TPADHOCMETHODS as TpAdhocMethods;
+  expose /EXAOTP/C_TPADHOCMETHODSTEXT as TpAdhocMethodsText;
+}

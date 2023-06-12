@@ -1,0 +1,88 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Method', 
+    typeNamePlural: 'Methods', 
+    title: {
+      type: #STANDARD, 
+      label: 'TP Adhoc Pricing Methods', 
+      value: 'Method'
+    }
+  }
+}
+annotate view /EXAOTP/C_TpAdhocMethods with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyTpAdhocMethods', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: '/EXAOTP/I_TpAdhocMethods', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TP Adhoc Pricing Methods', 
+    position: 1 
+  }, 
+  {
+    id: '/EXAOTP/I_TpAdhocMethodsText', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'TP Adhoc Pricing Methods Text', 
+    position: 2 , 
+    targetElement: '_TpAdhocMethodsText'
+  } ] 
+  @UI.lineItem: [{importance: #HIGH}] 
+  Method;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  ActiveFlag;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  CreateFlag;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  Crnam;  
+  
+  @UI.identification: [ {
+    position: 8 
+  } ]
+  Crtimestamp;
+  
+  @UI.identification: [ {
+    position: 9 
+  } ]
+  Chnam;  
+  
+  @UI.identification: [ {
+    position: 13 
+  } ]
+  LastChangedAt;
+  
+  @UI.identification: [ {
+    hidden: true, 
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Description;
+}

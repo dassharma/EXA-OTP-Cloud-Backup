@@ -1,0 +1,5 @@
+@MappingRole: true
+define role /EXAOTP/I_TpAdhocAlgText {
+  grant select on /EXAOTP/I_TpAdhocAlgText
+  where INHERITING CONDITIONS FROM ENTITY /EXAOTP/I_TpAdhocAlg;
+}

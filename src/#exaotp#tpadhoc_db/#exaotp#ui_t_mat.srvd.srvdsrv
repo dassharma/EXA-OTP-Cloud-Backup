@@ -1,0 +1,4 @@
+@EndUserText.label: 'Material'
+define service /EXAOTP/UI_T_MAT {
+  expose /EXAOTP/I_T_MAT as Material;
+}

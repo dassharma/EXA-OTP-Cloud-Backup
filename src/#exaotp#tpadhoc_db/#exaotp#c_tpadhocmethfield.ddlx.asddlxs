@@ -1,0 +1,216 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Method Field', 
+    typeNamePlural: 'Method Fields', 
+    title: {
+      type: #STANDARD, 
+      label: 'TP Adhoc Pricing Method Fields', 
+      value: 'Method'
+    }    
+  }
+}
+
+annotate view /EXAOTP/C_TpAdhocMethField with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyTpAdhocMethField', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: '/EXAOTP/I_TpAdhocMethField', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TP Adhoc Pricing Method Fields', 
+    position: 1 
+  }, 
+  {
+    id: '/EXAOTP/I_TpAdhocMethFieldText', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'TP Adhoc Pricing Method Fields Text', 
+    position: 2 , 
+    targetElement: '_TpAdhocMethFielText'
+  } ]
+  Method;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  ColumnId;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  Percent;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  @UI.lineItem: [ {
+    position: 5 
+  } ]
+  Enabled;
+  
+  @UI.identification: [ {
+    position: 6 
+  } ]
+  @UI.lineItem: [ {
+    position: 6 
+  } ]
+  Hide;
+  
+  @UI.identification: [ {
+    position: 7 
+  } ]
+  @UI.lineItem: [ {
+    position: 7 
+  } ]
+  ReadOnly;
+  
+  @UI.identification: [ {
+    position: 8 
+  } ]
+  @UI.lineItem: [ {
+    position: 8 
+  } ]
+  Param;
+  
+  @UI.identification: [ {
+    position: 9 
+  } ]
+  @UI.lineItem: [ {
+    position: 9 
+  } ]
+  Formula;
+  
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 
+  } ]
+  Seq;
+  
+  @UI.identification: [ {
+    position: 11 
+  } ]
+  QtyFlag;
+  
+  @UI.identification: [ {
+    position: 12 
+  } ]
+  CurrencyInd;
+  
+  @UI.identification: [ {
+    position: 13 
+  } ]
+  RefTooltip;
+  
+  @UI.identification: [ {
+    position: 14 
+  } ]
+  QtyCurrField;
+  
+  @UI.identification: [ {
+    position: 15 
+  } ]
+  SavedParam;
+  
+  @UI.identification: [ {
+    position: 16 
+  } ]
+  ErrorFlag;
+  
+  @UI.identification: [ {
+    position: 17 
+  } ]
+  MaxLength;
+  
+  @UI.identification: [ {
+    position: 18 
+  } ]
+  Filter;
+  
+  @UI.identification: [ {
+    position: 19 
+  } ]
+  DropDownFlag;
+  
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  EditParamFlag;
+  
+  @UI.identification: [ {
+    position: 21 
+  } ]
+  Hierarchyposition;
+  
+  @UI.identification: [ {
+    position: 22 
+  } ]
+  Service;
+  
+  @UI.identification: [ {
+    position: 23 
+  } ]
+  F4Flag;
+  
+  @UI.identification: [ {
+    position: 24 
+  } ]
+  DataElement;
+  
+  @UI.identification: [ {
+    position: 25 
+  } ]
+  Entity;
+  
+  @UI.identification: [ {
+    position: 26 
+  } ]
+  CheckBoxFlag;
+  
+  @UI.identification: [ {
+    position: 27 
+  } ]
+  Crnam;
+  
+  @UI.identification: [ {
+    position: 28 
+  } ]
+  Crtimestamp;
+  
+  @UI.identification: [ {
+    position: 29 
+  } ]
+  Chnam;
+  
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  LastChangedAt;
+  
+  @UI.identification: [ {
+    hidden: true, 
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  Description;
+}

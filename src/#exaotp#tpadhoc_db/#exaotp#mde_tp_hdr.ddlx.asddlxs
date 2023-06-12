@@ -1,0 +1,116 @@
+@Metadata.layer: #CORE
+annotate view /EXAOTP/I_TP_HDR with
+{
+  @UI.hidden: true
+  SysId;
+  @EndUserText.label: 'Sender'
+  @EndUserText.quickInfo: 'Sender'
+  @UI.lineItem: [{position: 10}]
+  Vendor;
+  @EndUserText.label: 'Receiver'
+  @EndUserText.quickInfo: 'Receiver'
+  @UI.lineItem: [{position: 20}]
+  Receiving_Entity;
+  @EndUserText.label: 'Material'
+  @EndUserText.quickInfo: 'Material'
+  @UI.lineItem: [{position: 30}]
+  MATERIAL;  
+  @UI.hidden: true
+  SMATERIAL;
+  @EndUserText.label: 'Material Description' 
+  @EndUserText.quickInfo: 'Material Description'
+  @UI.lineItem: [{position: 40}]
+  MAT_DESCR;
+  @EndUserText.label: 'Quantity'
+  @EndUserText.quickInfo: 'Quantity'
+  @UI.lineItem: [{position: 50}]
+  Price_qty_unit;
+  @EndUserText.label: 'Unit of Measure'
+  @EndUserText.quickInfo: 'Unit of Measure'
+  @UI.lineItem: [{position: 60}]
+  TP_UOM;
+  @EndUserText.label: 'Transfer Price'
+  @EndUserText.quickInfo: 'Transfer Price'
+  @UI.lineItem: [{position: 80}]
+  Proposed_TP;
+  @EndUserText.label: 'Currency'
+  @EndUserText.quickInfo: 'Currency'
+  @UI.lineItem: [{position: 90}]
+  TP_Currency;
+  @EndUserText.label: 'View Parameters'
+  @EndUserText.quickInfo: 'View Parameters'
+  @UI.lineItem: [{position: 95}]
+  View_param; 
+  @EndUserText.label: 'Calculation' 
+  @EndUserText.quickInfo: 'Calculation'
+  @UI.lineItem: [{position: 101}]
+  ALG_DESCR;
+  @EndUserText.label: 'Valid From'
+  @EndUserText.quickInfo: 'Valid From'
+  @UI.lineItem: [{position: 110}]
+  valid_from;
+  @EndUserText.label: 'Valid To'
+  @EndUserText.quickInfo: 'Valid To'
+  @UI.lineItem: [{position: 120}]
+  valid_to;
+  @UI.hidden: true
+  method;
+  @UI.hidden: true
+  algorithm; 
+  @EndUserText.label: 'Created By'
+  @EndUserText.quickInfo: 'Created By'
+  @UI.lineItem: [{position: 130}]
+  crnam;
+  @EndUserText.label: 'Created On'
+  @EndUserText.quickInfo: 'Created On'
+  @UI.lineItem: [{position: 155}]
+  crtimestamp;
+  @EndUserText.label: 'Changed By'
+  @EndUserText.quickInfo: 'Changed By'
+  @UI.lineItem: [{position: 160}]
+  chnam;
+  @EndUserText.label: 'Changed On'
+  @EndUserText.quickInfo: 'Changed On'
+  @UI.lineItem: [{position: 185}]
+  chtimestamp;
+  @UI.hidden: true
+  STATUS;
+  @UI.hidden: true
+  In_Process;
+  @UI.hidden: true
+  wf_flag;
+  @UI.hidden: true
+  Wf_Id;
+  @UI.hidden: true
+  active_flag;
+  @EndUserText.label: 'Workflow Id'
+  @EndUserText.quickInfo: 'Workflow Id'
+  @UI.lineItem: [{position: 121}]
+  wfid;
+  @EndUserText.label: 'Source'
+  @EndUserText.quickInfo: 'Source'
+  @UI.hidden: true
+  Source;  
+  @EndUserText.label: 'Sender Description'
+  @EndUserText.quickInfo: 'Sender Description' 
+  vendor_desc;    
+  @EndUserText.label: 'Receiver Description'
+  @EndUserText.quickInfo: 'Receiver Description'
+  recipient_desc;    
+  @EndUserText.label: 'Currency Description'
+  @EndUserText.quickInfo: 'Currency Description'
+  currency_desc;    
+  @EndUserText.label: 'UoM Description'
+  @EndUserText.quickInfo: 'UoM Description'
+  uom_desc;    
+  @EndUserText.label: 'Sender Country'
+  @EndUserText.quickInfo: 'Sender Country'
+  vendor_country;    
+  @EndUserText.label: 'Receiver Country'
+  @EndUserText.quickInfo: 'Receiver Country'
+  rec_country;       
+  @EndUserText.label: 'Pricing Method' 
+  @EndUserText.quickInfo: 'Pricing Method'
+  @UI.lineItem: [{position: 100}]
+  METHOD_DESCR;
+}

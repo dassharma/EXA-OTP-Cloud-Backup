@@ -1,0 +1,42 @@
+projection implementation in class /EXAOTP/BP_C_TPADHOCMETHODS_S unique;
+strict;
+use draft;
+
+define behavior for /EXAOTP/C_TpAdhocMethods_S alias TpAdhocMethodsAll
+
+{
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action SelectCustomizingTransptReq;
+
+  use association _TpAdhocMethods { create ( augment ); with draft; }
+}
+
+define behavior for /EXAOTP/C_TpAdhocMethods alias TpAdhocMethods
+
+{
+  field ( modify )
+   Description;
+
+
+  use update( augment );
+  use delete;
+
+  use action CopyTpAdhocMethods;
+
+  use association _TpAdhocMethodsAll { with draft; }
+  use association _TpAdhocMethodsText { create; with draft; }
+}
+
+define behavior for /EXAOTP/C_TpAdhocMethodsText alias TpAdhocMethodsText
+
+{
+  use update;
+  use delete;
+
+  use association _TpAdhocMethodsAll { with draft; }
+  use association _TpAdhocMethods { with draft; }
+}

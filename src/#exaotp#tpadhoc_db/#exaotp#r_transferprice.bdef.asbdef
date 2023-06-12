@@ -1,0 +1,83 @@
+managed implementation in class /EXAOTP/BP_TransferPrice unique;
+strict ( 1 );
+with draft;
+
+define behavior for /EXAOTP/R_TRANSFERPRICE alias TransferPrice
+persistent table /exaotp/t_tp
+draft table /EXAOTP/D_TP
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   SysID,
+   Material,
+   SendingEntity,
+   ReceivingEntity,
+   SenderTpFunction,
+   ValidFrom,
+   SeqNo;
+
+  field ( readonly )
+   Crtimestamp,
+   Crnam,
+   LastChangedAt,
+   Chnam,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   SysID,
+   Material,
+   SendingEntity,
+   ReceivingEntity,
+   SenderTpFunction,
+   ValidFrom,
+   SeqNo;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  static action withPopup parameter /EXAOTP/I_CREATETP result [1] $self;
+
+  mapping for /EXAOTP/T_TP
+  {
+    SysID = sysid;
+    Material = material;
+    SendingEntity = sending_entity;
+    ReceivingEntity = receiving_entity;
+    SenderTpFunction = sender_tp_function;
+    ValidFrom = valid_from;
+    SeqNo = seq_no;
+    Currency = currency;
+    Uom = uom;
+    ValidTo = valid_to;
+    ActiveFlag = active_flag;
+    TpUpdateProcess = tp_update_process;
+    PriceQtyUnit = price_qty_unit;
+    Meins = meins;
+   TransferPricePr = transfer_price_pr;
+    TransferPrice = transfer_price;
+    TransferPriceInSrcSys = transfer_price_in_src_sys;
+    ActInSrcSys = act_in_src_sys;
+    Comments = comments;
+    CommentsShort = comments_short;
+    Vakey = vakey;
+    WfID = wf_id;
+    Crapplication = crapplication;
+    Chapplication = chapplication;
+    Crnam = crnam;
+    Crtimestamp = crtimestamp;
+    Chnam = chnam;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

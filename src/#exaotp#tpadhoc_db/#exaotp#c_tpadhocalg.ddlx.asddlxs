@@ -1,0 +1,87 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Method Algorithm', 
+    typeNamePlural: 'Method Algorithms', 
+    title: {
+      type: #STANDARD, 
+      label: 'TP Adhoc Method Algorithms', 
+      value: 'Method'
+    }
+  }
+}
+annotate view /EXAOTP/C_TpAdhocAlg with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyTpAdhocAlg', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: '/EXAOTP/I_TpAdhocAlg', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TP Adhoc Method Algorithms', 
+    position: 1 
+  }, 
+  {
+    id: '/EXAOTP/I_TpAdhocAlgText', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'TP Adhoc Method Algorithms Text', 
+    position: 2 , 
+    targetElement: '_TpAdhocAlgText'
+  } ]
+  Method;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Algorithm;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  ActiveFlag;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  Crnam;
+  
+  @UI.identification: [ {
+    position: 6 
+  } ]
+  Crtimestamp;
+  
+  @UI.identification: [ {
+    position: 7 
+  } ]
+  Chnam;
+  
+  @UI.identification: [ {
+    position: 8 
+  } ]
+  LastChangedAt;
+  
+  @UI.identification: [ {
+    hidden: true, 
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  Description;
+}

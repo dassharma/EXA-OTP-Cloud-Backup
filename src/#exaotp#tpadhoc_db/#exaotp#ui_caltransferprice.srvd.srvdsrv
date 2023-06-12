@@ -1,0 +1,4 @@
+@EndUserText.label: 'Calculate Transfer Price'
+define service /EXAOTP/UI_CALTRANSFERPRICE {
+  expose /EXAOTP/I_CalTransferPrice as CalTransferPrice;
+}

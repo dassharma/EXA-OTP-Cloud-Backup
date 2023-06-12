@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service for/EXAOTP/C_TRANSFERPRICE'
+define service /EXAOTP/UI_TRANSFERPRICE {
+  expose /EXAOTP/C_TRANSFERPRICE as TransferPrice;
+}

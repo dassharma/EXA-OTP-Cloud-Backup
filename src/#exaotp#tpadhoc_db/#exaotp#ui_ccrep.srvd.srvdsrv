@@ -1,0 +1,4 @@
+@EndUserText.label: 'Reporting Company'
+define service /EXAOTP/UI_CCREP {
+  expose /EXAOTP/I_CCREP as ReportingCompany;
+}

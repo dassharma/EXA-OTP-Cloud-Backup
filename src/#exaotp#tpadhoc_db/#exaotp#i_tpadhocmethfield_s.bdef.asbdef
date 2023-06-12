@@ -1,0 +1,142 @@
+managed with additional save implementation in class /EXAOTP/BP_I_TPADHOCMETHFIEL_S unique;
+strict;
+with draft;
+
+define behavior for /EXAOTP/I_TpAdhocMethField_S alias TpAdhocMethFieldAll
+draft table /EXAOTP/D_TFD_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation TpAdhocMethField ~ ValidateDataConsistency;
+    validation TpAdhocMethFielText ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TpAdhocMethField { create ( features : instance ); with draft; }
+}
+
+define behavior for /EXAOTP/I_TpAdhocMethField alias TpAdhocMethField
+persistent table /EXAOTP/T_TP_FLD
+draft table /EXAOTP/D_TFD
+etag master LocalLastChangedAt
+lock dependent by _TpAdhocMethFieldAll
+authorization dependent by _TpAdhocMethFieldAll
+
+{
+  field ( mandatory : create )
+   Method,
+   ColumnId;
+
+  field ( readonly )
+   SingletonID,
+   Crnam,
+   Crtimestamp,
+   Chnam,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Method,
+   ColumnId;
+
+
+  update( features : global );
+  delete( features : global );
+
+  factory action ( features : instance ) CopyTpAdhocMethField parameter /EXAOTP/D_CopyTpAdhocMethField [1];
+
+  mapping for /EXAOTP/T_TP_FLD
+  {
+    Method = METHOD;
+    ColumnId = COLUMN_ID;
+    Percent = PERCENT;
+    Enabled = ENABLED;
+    Hide = HIDE;
+    ReadOnly = READ_ONLY;
+    Param = PARAM;
+    Formula = FORMULA;
+    Seq = SEQ;
+    QtyFlag = QTY_FLAG;
+    CurrencyInd = CURRENCY_IND;
+    RefTooltip = REF_TOOLTIP;
+    QtyCurrField = QTY_CURR_FIELD;
+    SavedParam = SAVED_PARAM;
+    ErrorFlag = ERROR_FLAG;
+    MaxLength = MAX_LENGTH;
+    Filter = FILTER;
+    DropDownFlag = DROP_DOWN_FLAG;
+    EditParamFlag = EDIT_PARAM_FLAG;
+    Hierarchyposition = HIERARCHYPOSITION;
+    Service = SERVICE;
+    F4Flag = F4_FLAG;
+    DataElement = DATA_ELEMENT;
+    Entity = ENTITY;
+    CheckBoxFlag = CHECK_BOX_FLAG;
+    Crnam = CRNAM;
+    Crtimestamp = CRTIMESTAMP;
+    Chnam = CHNAM;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TpAdhocMethFieldAll { with draft; }
+  association _TpAdhocMethFielText { create ( features : global ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}
+
+define behavior for /EXAOTP/I_TpAdhocMethFieldText alias TpAdhocMethFielText
+persistent table /EXAOTP/T_TP_FLT
+draft table /EXAOTP/D_TFT
+etag master LocalLastChangedAt
+lock dependent by _TpAdhocMethFieldAll
+authorization dependent by _TpAdhocMethFieldAll
+
+{
+  field ( mandatory : create )
+   Spras;
+
+  field ( readonly )
+   SingletonID,
+   Method,
+   ColumnId,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Spras;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for /EXAOTP/T_TP_FLT
+  {
+    Spras = SPRAS;
+    Method = METHOD;
+    ColumnId = COLUMN_ID;
+    Description = DESCRIPTION;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TpAdhocMethFieldAll { with draft; }
+  association _TpAdhocMethField { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}
